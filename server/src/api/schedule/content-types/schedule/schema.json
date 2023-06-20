@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "schedules",
+  "info": {
+    "singularName": "schedule",
+    "pluralName": "schedules",
+    "displayName": "Schedule",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "firstFlag": {
+      "type": "string",
+      "maxLength": 2
+    },
+    "lastFlag": {
+      "type": "string",
+      "maxLength": 2
+    },
+    "time": {
+      "type": "string"
+    },
+    "gameName": {
+      "type": "string"
+    }
+  }
+}

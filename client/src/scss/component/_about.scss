@@ -1,0 +1,25 @@
+.about__wrapper {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  background-color: #e6dfdf;
+
+  img {
+    height: 100px;
+  }
+  h1 {
+    color: $purple700;
+  }
+  h2 {
+    color: #bd8741;
+  }
+  p {
+    width: 55%;
+    font-size: 20px;
+    text-align: center;
+    line-height: 1.5;
+  }
+}

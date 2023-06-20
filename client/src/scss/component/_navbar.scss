@@ -1,0 +1,123 @@
+@import "../abstracts/variables";
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #e6dfdf;
+  height: 10vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.25s ease-in-out;
+  .nav__wrapper {
+    width: 95%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .nav__left__items {
+      .nav__logo__link {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        gap: 20px;
+        img {
+          height: 63px;
+        }
+        span {
+          font-weight: bold;
+          font-size: 20px;
+          padding-bottom: 2px;
+          color: $purple600;
+          &:hover {
+            color: $purple800;
+            transition: 0.6s;
+          }
+        }
+      }
+    }
+    .nav__middle__item {
+      display: flex;
+      gap: 80px;
+      .link__middle {
+        text-decoration: none;
+        font-weight: 600;
+        padding-bottom: 2px;
+        border-bottom: 3px solid burlywood;
+        cursor: pointer;
+        &:hover {
+          transition: 0.6s;
+          border-bottom: 3px solid rgb(189, 135, 65);
+        }
+      }
+    }
+    .nav__right__item {
+      display: flex;
+      gap: 20px;
+      .not__user {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        .link__right {
+          font-size: 14px;
+          cursor: pointer;
+          &:hover {
+            color: $purple900;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+}
+
+.button-30 {
+  align-items: center;
+  appearance: none;
+  background-color: #fcfcfd;
+  border-radius: 4px;
+  border-width: 0;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #36395a;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "JetBrains Mono", monospace;
+  height: 45px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow 0.15s, transform 0.15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow, transform;
+  font-size: 18px;
+}
+
+.button-30:focus {
+  box-shadow: #d6d6e7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
+}
+
+.button-30:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.button-30:active {
+  box-shadow: #d6d6e7 0 3px 7px inset;
+  transform: translateY(2px);
+}

@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;300;400;500;600;700&family=Quicksand:wght@300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Quicksand", sans-serif;
+}
+/* Works on Chrome, Edge, and Safari */
+::-webkit-scrollbar {
+  width: 3px; /* width of the entire scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #e6dfdf; /* color of the tracking area */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888; /* color of the scroll thumb */
+  border-radius: 4px; /* roundness of the scroll thumb */
+}
+
+/* change thumb color when hovering over it */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
