@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import logo from '../assets/logo/logo.png';
 import { NavLink } from 'react-router-dom';
 import { Link } from 'react-scroll';
+// import { isAuthenticated, login, logout } from './Login/useAuth';
 
 const Navbar = () => {
-  const [user, setUser] = useState(false);
+
   return (
     <nav>
       <div className="nav__wrapper">
@@ -17,22 +18,27 @@ const Navbar = () => {
         </div>
         <div className="nav__middle__item">
           <NavLink to="/" className='link__middle'>Home</NavLink>
-          <Link
-            activeClass="active"
-            to="about"
-            spy={true}
-            smooth={true}
-            offset={-70}
-            duration={500}
-            className='link__middle'>About</Link>
-          <Link
-            activeClass="active"
-            to="schedule"
-            spy={true}
-            smooth={true}
-            offset={-70}
-            duration={500}
-            className='link__middle'>Schedule</Link>
+          <NavLink to="/">
+            <Link
+              activeClass="active"
+              to="about"
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={500}
+              className='link__middle'>About</Link>
+          </NavLink>
+          <NavLink to="/">
+            <Link
+              activeClass="active"
+              to="schedule"
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={500}
+              className='link__middle'>Schedule</Link>
+          </NavLink>
+
           <Link
             activeClass="active"
             to=""
@@ -41,12 +47,12 @@ const Navbar = () => {
             offset={-70}
             duration={500}
             className='link__middle'>News</Link>
-          <Link className='link__middle'>Broadcast</Link>
+          <NavLink className='link__middle' to='/feed'>Broadcast</NavLink>
 
         </div>
         <div className="nav__right__item">
           {
-            user ?
+            true ?
               <>
 
               </> :

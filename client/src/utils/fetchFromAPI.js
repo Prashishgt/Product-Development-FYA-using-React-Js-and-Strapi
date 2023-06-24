@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "https://private-121c43-olympicsapi.apiary-mock.com";
+const BASE_URL = "https://youtube-v31.p.rapidapi.com";
 
 const options = {
   params: {
