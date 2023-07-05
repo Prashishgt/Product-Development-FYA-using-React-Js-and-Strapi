@@ -1,10 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;300;400;500;600;700&family=Quicksand:wght@300;400;500;600;700&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap");
 html,
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "PT Serif", serif;
 }
 
 a {
@@ -28,7 +28,7 @@ a {
 }
 
 .category-btn:hover {
-  background-color: #fc1503 !important;
+  background-color: #d89c43 !important;
   color: white !important;
 }
 
@@ -44,7 +44,7 @@ a {
 .search-bar {
   border: none;
   outline: none;
-  width: 350px;
+  width: 300px;
 }
 
 .category-btn {

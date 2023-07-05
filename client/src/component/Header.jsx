@@ -1,5 +1,7 @@
 import React from 'react';
 import homeImg from '../assets/homeImage.jpg';
+import { Link } from 'react-router-dom';
+import ReactPlayer from 'react-player';
 
 const Header = () => {
   return (
@@ -11,10 +13,17 @@ const Header = () => {
           favorite matches unfold live. Here, we make the thrill
           of the Olympics more accessible and enjoyable, right
           at your fingertips!"</p>
-        <button className='button-30'>Get Started</button>
+        <Link to='/login'>
+          <button className='button-30'>Get Started</button>
+        </Link>
       </div>
       <div className="right__header__items">
-        <img src={homeImg} alt="" />
+        <ReactPlayer
+          loop={true}
+          playing={true}
+          controls={false}
+          url='<https://www.youtube.com/watch?v=r-p0uGsArVI&ab_channel=NGIntros>'
+        />
       </div>
     </div>
   )

@@ -1,0 +1,45 @@
+.notlogged__wrapper {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .nologged__box__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    gap: 20px;
+
+    h1 {
+      color: red;
+    }
+    p {
+      font-size: 20px;
+      font-weight: 600;
+      color: #bd8741;
+      text-align: center;
+    }
+    .btn__nologged__wrapper {
+      display: flex;
+      gap: 20px;
+      a {
+        padding: 10px 12px;
+        width: 150px;
+        background-color: #e6dfdf;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        color: black;
+        font-family: 600;
+        font-size: 19px;
+        transition: 0.5s all ease;
+        &:hover {
+          background-color: #a69b9b;
+        }
+      }
+    }
+  }
+}

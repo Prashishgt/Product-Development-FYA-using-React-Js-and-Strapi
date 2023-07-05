@@ -5,6 +5,7 @@ import About from '../component/About'
 import Schedule from '../component/Schedule'
 import Subscribe from '../component/Subscribe';
 import Footer from '../component/Footer';
+import FeedbackForm from '../component/FeedbackForm'
 
 const Home = () => {
   return (
@@ -13,7 +14,9 @@ const Home = () => {
       <Header />
       <Schedule />
       <About />
+
       <Subscribe />
+      <FeedbackForm />
       <Footer />
     </>
   )

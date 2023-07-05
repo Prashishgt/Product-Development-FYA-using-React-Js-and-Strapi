@@ -1,0 +1,9 @@
+.sportsVideo__wrapper {
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .video__wrapper {
+    pointer-events: none;
+  }
+}

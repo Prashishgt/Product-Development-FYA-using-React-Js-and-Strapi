@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import logo from '../assets/logo/logo.png';
 import { NavLink } from 'react-router-dom';
 import { Link } from 'react-scroll';
-// import { isAuthenticated, login, logout } from './Login/useAuth';
+import { useAuth } from '../component/Login/Login';
 
 const Navbar = () => {
-
+  const { isAuthenticated, login, logout } = useAuth();
   return (
     <nav>
       <div className="nav__wrapper">
@@ -39,22 +39,18 @@ const Navbar = () => {
               className='link__middle'>Schedule</Link>
           </NavLink>
 
-          <Link
-            activeClass="active"
-            to=""
-            spy={true}
-            smooth={true}
-            offset={-70}
-            duration={500}
-            className='link__middle'>News</Link>
-          <NavLink className='link__middle' to='/feed'>Broadcast</NavLink>
+          <NavLink
+            className='link__middle' to="/news">News</NavLink>
+          <NavLink className='link__middle' to='/broadcast'>Broadcast</NavLink>
 
         </div>
         <div className="nav__right__item">
           {
-            true ?
+            isAuthenticated ?
               <>
-
+                <NavLink to="/">
+                  <button className='button-30' onClick={logout}>Log out</button>
+                </NavLink>
               </> :
               <div className="not__user">
                 <NavLink className="link__right" to="/login">Already have an account?</NavLink>

@@ -27,12 +27,6 @@
     align-items: center;
     height: 100%;
     background-color: #e6dfdf;
-
-    img {
-      objectfit: cover;
-      backgroundattachment: fixed;
-      height: 90%;
-      border-radius: 10px;
-    }
+    pointer-events: none;
   }
 }

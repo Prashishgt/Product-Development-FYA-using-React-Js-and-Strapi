@@ -1,6 +1,11 @@
+.main__matchlist__wrapper {
+  width: 100%;
+  display: flex;
+}
+
 .matchlist__wrapper {
   display: flex;
   width: 100%;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
 }

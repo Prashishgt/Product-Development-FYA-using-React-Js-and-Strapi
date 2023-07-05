@@ -1,10 +1,12 @@
 import React from 'react';
-import { useAuth } from './Login/Login';
-import { Navigate, Outlet } from 'react-router-dom';
+import { useAuth } from '../component/Login/Login';
+import NotLoggedIn from '../component/NotLoggedIn';
+import { Feed } from './broadcast';
 
 const PrivateRoute = () => {
   const { isAuthenticated } = useAuth();
-  return isAuthenticated ? <Outlet /> : <Navigate to="/login" replace />;
+
+  return isAuthenticated ? <Feed /> : <NotLoggedIn />;
 };
 
-export default PrivateRoute
+export default PrivateRoute;

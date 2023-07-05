@@ -50,6 +50,7 @@ export const useAuth = () => {
   };
 };
 
+
 export default function Login() {
   const [form, setForm] = useState({
     email: "",
@@ -68,7 +69,7 @@ export default function Login() {
 
   React.useEffect(() => {
     if (isAuthenticated) {
-      navigate('/private-route');
+      navigate('/');
     }
   }, [isAuthenticated, navigate]);
 

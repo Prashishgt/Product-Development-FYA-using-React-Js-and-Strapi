@@ -1,9 +1,10 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <Box mt="70px" p="40px 0" backgroundColor="#e6dfdf">
+    <Box p="40px 0" backgroundColor="white">
       <Box
         width="80%"
         margin="auto"
@@ -23,31 +24,8 @@ const Footer = () => {
             Fun Olympics
           </Typography>
           <div>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum quasi
-            minima veritatis voluptatem error distinc tio optio accusantium ea,
-            natus doloribus dolor ab quae e um molestiae expedita velit culpa?
-            At ab exercitationem commo di delectus minima doloremque saepe
-            maiores quibusdam quae, cul pa corrupti voluptatem eveniet mollitia.
-            Dolores sapiente fuga l abore nihil quam!
+            "Welcome to Fun Onlympics – your go-to portal for all things entertainment! Dive into a world of exhilarating games, view schedules, and watch your favorite matches unfold live. Here, we make the thrill of the Olympics more accessible and enjoyable, right at your fingertips!"
           </div>
-        </Box>
-        <Box>
-          <Typography variant="h6" fontWeight="bold" mb="30px">
-            About Us
-          </Typography>
-          <Typography mb="30px">Careers</Typography>
-          <Typography mb="30px">Our Stores</Typography>
-          <Typography mb="30px">Terms & Conditions</Typography>
-          <Typography mb="30px">Privacy Policy</Typography>
-        </Box>
-        <Box>
-          <Typography variant="h6" fontWeight="bold" mb="30px">
-            Customer Care
-          </Typography>
-          <Typography mb="30px">Help Center</Typography>
-          <Typography mb="30px">Track your Order</Typography>
-          <Typography mb="30px">Corporate & Bulk Purchasing</Typography>
-          <Typography mb="30px">Returns & Refunds</Typography>
         </Box>
         <Box width="clamp(20%, 25%, 30%)">
           <Typography
@@ -58,12 +36,20 @@ const Footer = () => {
           >
             Contact Us
           </Typography>
-          <Typography mb="30px">50 Avenue, London, 1050</Typography>
-          <Typography mb="30px">Email: example@gmail.com</Typography>
-          <Typography mb="30px">(434) 4445-2221</Typography>
+          <Typography mb="30px">Milan Tole, Kathmandu</Typography>
+          <Typography mb="30px">Email: funOlympics@gmail.com</Typography>
+          <Typography mb="30px">(+977) 9813246717</Typography>
 
         </Box>
       </Box>
+      <Typography variant="body2" color="#bd8741" align="center" fontSize="17px">
+        {'Copyright © '}
+        <Link color="inherit" href="https://mui.com/">
+          Fun Olympics Committee
+        </Link>{' '}
+        <span>2023</span>
+        {'.'}
+      </Typography>
     </Box>
   );
 };
