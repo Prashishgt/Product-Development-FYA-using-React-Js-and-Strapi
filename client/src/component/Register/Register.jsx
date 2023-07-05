@@ -13,19 +13,7 @@ import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import PasswordChecklist from "react-password-checklist";
 import axios from 'axios';
-
-function Copyright(props) {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
+import Alert from '@mui/material/Alert';
 
 const defaultTheme = createTheme();
 
@@ -36,6 +24,8 @@ export default function Register() {
     password: "",
     confirmPassword: "",
   });
+
+  const [alert, setAlert] = React.useState("");
 
   const handleChange = (e) => {
     setForm({
@@ -61,33 +51,30 @@ export default function Register() {
         // TODO: handle successful registration (e.g., redirect, show message, etc.)
       } else if (data.message) {
         // Handle errors returned by the server.
-        console.log("Registration error:", data.message[0].messages[0].message);
+        setAlert(data.message[0].messages[0].message);
       } else {
-        console.log("Unknown registration error.");
+        setAlert("Unknown registration error.");
       }
     } catch (error) {
-      console.error("Registration network error:", error);
+      setAlert("Network error. Please try again later.");
     }
   };
 
   return (
     <ThemeProvider theme={defaultTheme}>
-      <Grid container component="main" sx={{ height: '100vh' }}>
+      <Grid container component="main" sx={{
+        height: '100vh',
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundImage: 'url(https://images.unsplash.com/photo-1526676037777-05a232554f77?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80)',
+        backgroundRepeat: 'no-repeat',
+        backgroundColor: (t) =>
+          t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}>
         <CssBaseline />
-        <Grid
-          item
-          xs={false}
-          sm={4}
-          md={7}
-          sx={{
-            backgroundImage: 'url(https://images.unsplash.com/photo-1627139853402-a730095065fc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80)',
-            backgroundRepeat: 'no-repeat',
-            backgroundColor: (t) =>
-              t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}
-        />
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
           <Box
             sx={{
@@ -97,9 +84,10 @@ export default function Register() {
               flexDirection: 'column',
               alignItems: 'center',
               justifyContent: 'center',
-              height: '100vh'
+              height: '98vh'
             }}
           >
+            {alert && <Alert severity="error">{alert}</Alert>}
 
             <Typography component="h1" variant="h5">
               Register
@@ -171,18 +159,12 @@ export default function Register() {
                 Sign Up
               </Button>
               <Grid container>
-                <Grid item xs>
-                  <Link href="#" variant="body2">
-                    Forgot password?
-                  </Link>
-                </Grid>
                 <Grid item>
-                  <Link href="/login" variant="body2">
+                  <Link href="/login" variant="body2" color="secondary">
                     {"Already have an account?"}
                   </Link>
                 </Grid>
               </Grid>
-              <Copyright sx={{ mt: 5 }} />
             </Box>
           </Box>
         </Grid>
