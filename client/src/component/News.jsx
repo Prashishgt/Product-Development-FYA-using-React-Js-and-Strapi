@@ -1,4 +1,7 @@
+import { useEffect, useState } from 'react';
 import Navbar from './Navbar';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const newsData = [
   {
@@ -54,16 +57,34 @@ const newsData = [
 ];
 
 const News = () => {
+  const [news, setNews] = useState([]);
+
+  useEffect(() => {
+    const fetchNews = async () => {
+      try {
+        const response = await axios.get('http://localhost:1337/api/news');
+        setNews(response.data.data);
+        log(response.data.data)
+      } catch (error) {
+        console.error('Error fetching schedules:', error);
+      }
+    };
+
+    fetchNews();
+  }, []);
   return (
     <>
       <Navbar />
       <div className="news__wrapper">
-        {newsData.map((news, index) => (
+        {news.map((news, index) => (
           <div className="news__items__wrapper" key={index}>
             {console.log(news)}
-            <img src={news.image} alt={news.title} />
-            <h3>{news.title}</h3>
-            <p>{news.description}</p>
+            <Link to={news.attributes.link}>
+              <img src={news.attributes.imgLink} alt={news.title} />
+
+            </Link>
+            <h3>{news.attributes.title}</h3>
+            <p>{news.attributes.description}</p>
           </div>
         ))}
       </div>

@@ -14,10 +14,13 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import PasswordChecklist from "react-password-checklist";
 import axios from 'axios';
 import Alert from '@mui/material/Alert';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 const defaultTheme = createTheme();
 
 export default function Register() {
+
+  const navigate = useNavigate();
   const [form, setForm] = React.useState({
     username: "",
     email: "",
@@ -36,18 +39,18 @@ export default function Register() {
 
   const handleRegister = async (e) => {
     e.preventDefault();
-    const { email, password, username } = form;
+    const { email, password, username, confirmPassword } = form;
     try {
       const response = await axios.post("http://localhost:1337/api/auth/local/register", {
         username,
         email,
         password
       });
-
       const data = response.data;
 
       if (data.user) {
-        console.log("User registered successfully.");
+        setAlert("User registered successfully.");
+        navigate('/');
         // TODO: handle successful registration (e.g., redirect, show message, etc.)
       } else if (data.message) {
         // Handle errors returned by the server.
@@ -56,7 +59,19 @@ export default function Register() {
         setAlert("Unknown registration error.");
       }
     } catch (error) {
-      setAlert("Network error. Please try again later.");
+      if (!username && !email && !password) {
+        setAlert("Enter all Input Fields");
+      }
+      else if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+        setAlert("Invalid Email");
+      }
+      else if (!(password === confirmPassword)) {
+        setAlert("Password don't match");
+      }
+      else {
+        setAlert(error.response.statusText);
+      }
+
     }
   };
 
@@ -87,7 +102,7 @@ export default function Register() {
               height: '98vh'
             }}
           >
-            {alert && <Alert severity="error">{alert}</Alert>}
+            {alert && <h4>{alert}</h4>}
 
             <Typography component="h1" variant="h5">
               Register

@@ -20,6 +20,7 @@ const defaultTheme = createTheme();
 
 export const useAuth = () => {
   const navigate = useNavigate();
+  const [alert, setAlert] = React.useState("");
   const [isAuthenticated, setIsAuthenticated] = useState(() => localStorage.getItem('isAuthenticated') === 'true');
   const login = async (email, password) => {
     try {
@@ -34,7 +35,8 @@ export const useAuth = () => {
         return true;
       }
     } catch (error) {
-      console.log(error.response.data);
+      setAlert(error.response.data.error.name);
+      console.log(error.response.data.error.name);
       navigate('/login');
       return false;
     }
@@ -47,6 +49,7 @@ export const useAuth = () => {
     isAuthenticated,
     login,
     logout,
+    alert
   };
 };
 
@@ -57,7 +60,7 @@ export default function Login() {
     password: "",
   });
 
-  const { login, isAuthenticated } = useAuth();
+  const { login, isAuthenticated, alert } = useAuth();
   const navigate = useNavigate();
 
   const handleInputChange = (e) => {
@@ -105,12 +108,14 @@ export default function Login() {
               alignItems: 'center',
             }}
           >
+            {alert && <h4>{alert}</h4>}
             <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
               <LockOutlinedIcon />
             </Avatar>
             <Typography component="h1" variant="h5">
               Login In
             </Typography>
+
             <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
               <TextField
                 margin="normal"

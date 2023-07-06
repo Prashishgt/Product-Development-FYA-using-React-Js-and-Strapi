@@ -31,7 +31,7 @@ const Categories = ({ selectedCategory, setSelectedCategory }) => {
         overflowY: "auto",
         height: { sx: "auto", md: "95%" },
         flexDirection: { md: "column" },
-        bgcolor: "white"
+        bgcolor: "#E6DFDF"
       }}
     >
       {cat.map((category) => (
@@ -39,7 +39,7 @@ const Categories = ({ selectedCategory, setSelectedCategory }) => {
           className="category-btn"
           onClick={() => setSelectedCategory(category.attributes.eventName)}
           style={{
-            background: category.attributes.eventName === selectedCategory && "#FC1503",
+            background: category.attributes.eventName === selectedCategory && "#bd8741",
             color: "rgba(0,0,0,0.6)",
           }}
           key={category.attributes.eventName}
